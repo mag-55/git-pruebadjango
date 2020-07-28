@@ -1,0 +1,30 @@
+<html>
+    <body>
+        {% include "superior/barra.html" %} {#para incluir una plantilla dentro de otra}
+        
+        <h2 style="color:red">Hola alumnos estamos viendo nuestra primera plantilla</h2>
+
+        {% if nombre_persona == "Profesor Juan" %}
+            <p>El curso lo imparte el profesor titular</p>
+        {%else%}
+            <p>El curso lo imparte el profesor SUPLENTE</p>
+        {% endif %}
+
+        <p>el nombre del profesor es: {{nombre_persona|upper}} {{apellido_persona.upper}}</p>
+        <p>Estamos viendo el tema de plantillas a día: {{momento_actual.day}}/{{momento_actual.month}}/{{momento_actual.year}}</p>
+        <p><strong>Temas del Curso</strong></p>
+        
+        <p>
+            <ul>
+            {% if temas %}
+                {% for i in temas %}
+                    <li>{{i}}</li>
+                {% endfor %}
+            {% else %}
+                <p>No hay elementos que mostrar</p>
+            {% endif %}
+            </ul>
+        </p>
+        
+    </body>
+</html>
